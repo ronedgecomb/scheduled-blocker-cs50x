@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Scheduled Blocker</title>
+    <style>
+      body {
+        width: 320px;
+        margin: 16px;
+        font-family: system-ui, sans-serif;
+        font-size: 14px;
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 15px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      form p {
+        margin: 0;
+      }
+
+      form button {
+        align-self: flex-start;
+      }
+
+      #add-site-form {
+        flex-direction: row;
+      }
+
+      #domain-input {
+        flex: 1;
+      }
+
+      fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+
+      #period-list li {
+        white-space: pre-line;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Scheduled Blocker</h1>
+
+    <h2>Blocked sites</h2>
+    <form id="add-site-form">
+      <input type="text" id="domain-input" placeholder="example.com" required />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="site-list"></ul>
+
+    <h2>Schedule</h2>
+    <form id="add-period-form">
+      <fieldset>
+        <legend>Days</legend>
+        <label><input type="checkbox" name="day" value="1" /> Mon</label>
+        <label><input type="checkbox" name="day" value="2" /> Tue</label>
+        <label><input type="checkbox" name="day" value="3" /> Wed</label>
+        <label><input type="checkbox" name="day" value="4" /> Thu</label>
+        <label><input type="checkbox" name="day" value="5" /> Fri</label>
+        <label><input type="checkbox" name="day" value="6" /> Sat</label>
+        <label><input type="checkbox" name="day" value="0" /> Sun</label>
+      </fieldset>
+      <p>
+        <label
+          >From <input type="time" id="start-input" value="09:00" required
+        /></label>
+        <label
+          >to <input type="time" id="end-input" value="17:00" required
+        /></label>
+      </p>
+      <button type="submit">Add time period</button>
+    </form>
+    <ul id="period-list"></ul>
+
+    <p id="message"></p>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
